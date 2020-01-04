@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>艾滋数据分析</title>
+    <link href="../static/base.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<ul>
+   	<button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+		<a style="line-height: 16px" href="/analysis_one?type=a">艾滋病新增人数世界地图</a>
+	</button>
+    <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+    <a style="line-height: 16px" href="/analysis_two?type=a">颁布法律前，中，后对比</a>
+    </button>
+    <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+    <a style="line-height: 16px" href="/analysis_three?type=a">分省艾滋人数2008</a>
+    </button>
+    <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+    <a style="line-height: 16px" href="/analysis_four?type=a">分省艾滋人数2018</a>
+    </button>
+    <button type="button" class="mui-btn mui-btn-primary mui-btn-outlined">
+    <a style="line-height: 16px" href="/analysis_five?type=a">新增艾滋病人数对比</a>
+    </button>
+</ul>
+<HR SIZE=5>
+<form method="POST" action="/detailed">
+    <select name="option">
+        {% for option in option_list %}
+            <option value="{{ option }}">{{ option }}</option>
+        {% endfor %}
+    </select>
+<p><input value='go' type='SUBMIT'></p>
+</form>
+<!--{{ the_plot_all|safe }}-->
+{{ the_res|safe }}
+
+</body>
+</html>
